@@ -38,14 +38,22 @@
     
     List<Book> book = (List<Book>) pm.newQuery(query).execute();
    
-        for (Book b : book) {           
+        for (Book b : book) {
 %>
 <hr>
+<blockquote>ID:<%= b.getId()%></blockquote>
 <blockquote>Author:<%= b.getAuthor() %></blockquote>
 <blockquote>Title:<%= b.getTitle() %></blockquote>
 <blockquote>ISBN:<%= b.getIsbn() %></blockquote>
 <blockquote>Content:<%= b.getContent() %></blockquote>
 
+<blockquote>
+<a href="/books/selectUpdBook.jsp?id=<%= b.getId()%>" >修改</a>
+<BR/><BR/>
+<form action="/delBook?id=<%= b.getId()%>" method="post">
+<input type="submit" value="刪除" name="del"/>
+</form>
+</blockquote>
 <%
         }   
     pm.close();

@@ -22,13 +22,34 @@
         <url-pattern>/sign</url-pattern>
     </servlet-mapping>
     
-     <servlet>
+    <servlet>
         <servlet-name>insertBook</servlet-name>
         <servlet-class>com.books.BookshelfServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>insertBook</servlet-name>
         <url-pattern>/insertBook</url-pattern>
+    </servlet-mapping>
+	
+	<!--Del Book-->
+	<servlet>
+        <servlet-name>delBook</servlet-name>
+        <servlet-class>com.books.DelBook</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>delBook</servlet-name>
+        <url-pattern>/delBook</url-pattern>
+    </servlet-mapping>
+	
+	
+	<!--Update Book-->
+	<servlet>
+        <servlet-name>updBook</servlet-name>
+        <servlet-class>com.books.UpdBook</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updBook</servlet-name>
+        <url-pattern>/updBook</url-pattern>
     </servlet-mapping>
 		
 		
