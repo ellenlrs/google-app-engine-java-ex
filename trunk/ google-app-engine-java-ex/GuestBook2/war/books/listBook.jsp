@@ -42,6 +42,8 @@
 %>
 <hr>
 <blockquote>ID:<%= b.getId()%></blockquote>
+<blockquote><img src="<%=b.getBookImg()%>"></img>
+<br/>BookImage:<%=b.getBookImg()%></blockquote>
 <blockquote>Author:<%= b.getAuthor() %></blockquote>
 <blockquote>Title:<%= b.getTitle() %></blockquote>
 <blockquote>ISBN:<%= b.getIsbn() %></blockquote>

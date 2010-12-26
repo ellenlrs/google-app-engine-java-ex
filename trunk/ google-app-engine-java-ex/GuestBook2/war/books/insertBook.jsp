@@ -48,6 +48,10 @@
 							<input type="text" name="isbn" size="40">
 						</div>
 						<br/>
+						<div>Book Image:
+							<input type="text" name="bookImg" size="300"/>
+						</div>
+						<br/>
 						<div>
 							CONTENT:
 							<textarea name="content" rows="4" cols="60"></textarea>
