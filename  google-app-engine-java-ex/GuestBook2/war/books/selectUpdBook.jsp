@@ -44,6 +44,7 @@
 <hr>
 <form action="/updBook?id=<%= book.getId()%>" method="post">
 <blockquote>ID:<%= book.getId()%></blockquote>
+<blockquote>Book Img:<input type="text" name="bookImg" value="<%=book.getBookImg()%>"></input></blockquote>
 <blockquote>Author:<input type="text"  name="author" value="<%= book.getAuthor() %>"></input></blockquote>
 <blockquote>Title:<input type="text"  name="title" value="<%= book.getTitle() %>"></blockquote>
 <blockquote>ISBN:<input type="text"  name="isbn" value="<%= book.getIsbn() %>"></blockquote>
