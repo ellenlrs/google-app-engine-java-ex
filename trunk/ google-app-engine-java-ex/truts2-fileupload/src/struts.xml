@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<include file="struts-default.xml"></include>
+	
+	<package name="member" namespace="/member" extends="struts-default">
+		<action name="login">
+			<result>/login.jsp</result>
+		</action>
+		<action name="home" method="login" class="com.login.LoginAction">
+			<result>/home.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="" namespace="/" extends="struts-default">
+		
+		<interceptors>
+			<interceptor name="gaeFileUploadInterceptor"
+				class="com.struts2.gae.interceptor.GaeFileUploadInterceptor" />
+			<interceptor-stack name="fileUploadStack">
+				<interceptor-ref name="gaeFileUploadInterceptor"></interceptor-ref>
+				<interceptor-ref name="basicStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="fileUploadStack" />	
+			
+		<action name="add">
+			<result>/upload.jsp</result>
+		</action>
+		 
+		<action name="upload" method="upload" class="com.fileupload.UploadAction">
+			<result name="success" type = "stream">
+		    	<param name="contentType">image/jpeg</param>
+		    	<param name="inputName">photoStream</param>
+		    	<param name="contentDisposition">filename="photo.jpg"</param>
+		    	<param name="bufferSize">1024</param>
+ 			</result> 
+		</action>
+		
+	</package>
+	
+</struts>
