@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<include file="struts-default.xml"></include>
+	<constant name="struts.custom.i18n.resources" value="messages" />
+		<package name="member" namespace="/member" extends="struts-default">
+		<action name="login">
+			<result>/login.jsp</result>
+		</action>
+		<action name="home" method="login" class="com.login.LoginAction">
+			<result>/home.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+	</package>
+	<!--
+	<package name="" namespace="/" extends="tiles-default">
+	
+		<interceptors>
+			<interceptor name="gaeFileUploadInterceptor"
+				class="com.struts2.gae.interceptor.GaeFileUploadInterceptor" />
+			<interceptor-stack name="fileUploadStack">
+				<interceptor-ref name="gaeFileUploadInterceptor"></interceptor-ref>
+				<interceptor-ref name="basicStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="fileUploadStack" />
+		 
+		<action name="add">
+			<result>/upload.jsp</result>
+		</action>
+		<action name="upload" method="upload" class="com.yanfb.gs2.UploadAction">
+			<result name="success" type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">photoStream</param>
+				<param name="contentDisposition">filename="photo.jpg"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+		 
+		 <action name="toUpload">
+			<result name="success" type="tiles">index.definition
+			</result>
+		</action>
+		<action name="fileUpload" class="uploadAction">
+			<result name="iamge" type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">photoStream</param>
+				<param name="contentDisposition">filename="photo.jpg"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		 	<result name="uploadTextInfo" type="tiles">
+		 		file.info.definition
+			</result>
+			<result name="input" type="tiles">file.upload.definition
+			</result>
+			<result name="uploadPage" type="tiles">file.upload.definition
+			</result>
+		</action>
+		
+		<action name="introduce-en">
+			<result name="success" type="tiles">introduce.en.definition
+			</result>
+		</action>
+		
+		<action name="introduce-cn">
+			<result name="success" type="tiles">introduce.cn.definition
+			</result>
+		</action>
+		
+	</package>
+	-->
+</struts>
