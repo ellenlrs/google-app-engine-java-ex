@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+	<!--
+	-->
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+	<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+	<definition name="base.definition" template="/tiles/layout.jsp">
+		<put-attribute name="header" value="/tiles/header.jsp" />
+		<put-attribute name="main" value="" />
+		<put-attribute name="sevicesContain" value="/tiles/sevicesContain.jsp" />
+	</definition>
+	<!-- index page -->
+	<definition name="index.definition" extends="base.definition" >
+		<put-attribute name="main" value="/tiles/upload/upload.jsp" />
+	</definition>
+
+	<!-- file upload page -->
+	<definition name="file.upload.definition" extends="base.definition" >
+		<put-attribute name="main" value="/tiles/upload/upload.jsp" />
+	</definition>
+	
+	<!-- uploaded file info -->
+	<definition name="file.info.definition" extends="base.definition" >
+		<put-attribute name="main" value="/tiles/upload/fileInfo.jsp" />
+	</definition>
+	
+	<!-- introduce for en -->
+	<definition name="introduce.en.definition" extends="base.definition" >
+		<put-attribute name="main" value="/tiles/introduce/introduce_en.jsp" />
+	</definition>
+	
+	<!-- introduce for cn -->
+	<definition name="introduce.cn.definition" extends="base.definition" >
+		<put-attribute name="main" value="/tiles/introduce/introduce_cn.jsp" />
+	</definition>
+</tiles-definitions>
