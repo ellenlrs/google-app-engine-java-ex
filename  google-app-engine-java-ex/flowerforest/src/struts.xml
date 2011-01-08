@@ -5,7 +5,8 @@
 <struts>
 	<include file="struts-default.xml"></include>
 	<constant name="struts.custom.i18n.resources" value="messages" />
-		<package name="member" namespace="/member" extends="struts-default">
+	
+	<package name="member" namespace="/member" extends="struts-default">
 		<action name="login">
 			<result>/login.jsp</result>
 		</action>
@@ -16,7 +17,7 @@
 	</package>
 	<!--
 	<package name="" namespace="/" extends="tiles-default">
-	
+		
 		<interceptors>
 			<interceptor name="gaeFileUploadInterceptor"
 				class="com.struts2.gae.interceptor.GaeFileUploadInterceptor" />
