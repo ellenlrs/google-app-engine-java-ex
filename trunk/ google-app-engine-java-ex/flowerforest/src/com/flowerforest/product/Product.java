@@ -39,6 +39,30 @@ public class Product {
 	@Persistent
 	private int price;// 價格
 
+	public Product(String title) {
+		super();
+		this.title = title;
+	}
+
+	// Accessors for the fields. JDO doesn't use these, but your application does.
+	// public Product getProduct(int id) {
+	//
+	// PersistenceManager pm = PMF.get().getPersistenceManager();
+	//
+	// Key k = KeyFactory.createKey(Product.class.getSimpleName(), id);
+	// Product e = pm.getObjectById(Product.class, k);
+	// try {
+	// pm.setDetachAllOnCommit(true);
+	// } finally {
+	// pm.close();
+	// }
+	// return e;
+	// }
+
+	public Product() {
+		super();
+	}
+
 	public Long getId() {
 		return id;
 	}
