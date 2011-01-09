@@ -15,6 +15,15 @@
 			<result name="input">/login.jsp</result>
 		</action>
 	</package>
+	<package name="" namespace="/" extends="struts-default">
+		<action name="insert">
+			<result>/product/insert.jsp</result>
+		</action>
+		<action name="insertFlower" method="insertFlower" class="com.flowerforest.product.action.ProductAction">
+		<result>/product/insertOK.jsp</result>
+		<result name="input">/product/insert.jsp</result>
+		</action>
+	</package>
 	<!--
 	<package name="" namespace="/" extends="tiles-default">
 		
