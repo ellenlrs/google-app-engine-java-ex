@@ -11,6 +11,8 @@ import org.apache.commons.lang.xwork.StringUtils;
 
 import com.db.PMF;
 import com.flowerforest.product.Product;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -33,6 +35,7 @@ public class ProductAction extends ActionSupport {
 	private String distribution;// 配送
 	private String memo;// 備註
 	private String price;// 價格
+	private String id;
 
 	/**
 	 * 
@@ -61,6 +64,52 @@ public class ProductAction extends ActionSupport {
 		} catch (Exception e) {
 			log.info(e.toString());
 			addActionError("新增商品失敗.");
+			return INPUT;
+		} finally {
+			pm.close();
+		}
+
+	}
+
+	public String delproduct() {
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		try {
+			Key k = KeyFactory.createKey(Product.class.getSimpleName(), Integer.parseInt(id));
+			Product product = pm.getObjectById(Product.class, k);
+			pm.deletePersistent(product);
+			addActionMessage("刪除商品成功.");
+			return SUCCESS;
+		} catch (Exception e) {
+			log.info(e.toString());
+			addActionError("刪除商品失敗.");
+			return INPUT;
+		} finally {
+			pm.close();
+		}
+
+	}
+
+	public String updateProduct() {
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		try {
+			Key k = KeyFactory.createKey(Product.class.getSimpleName(), Integer.parseInt(id));
+			Product product = pm.getObjectById(Product.class, k);
+			product.setTitle(getTitle());
+			if (StringUtils.isNotBlank(getPrice()))
+				product.setPrice(Integer.parseInt(getPrice()));
+			product.setSize(getSize());
+			product.setDesc(getDesc());
+			product.setSpec(getSpec());
+			product.setAccessories(getAccessories());
+			product.setExplain(getExplain());
+			product.setDistribution(getDistribution());
+			product.setMemo(getMemo());
+			pm.makePersistent(product);
+			addActionMessage("修改商品成功.");
+			return SUCCESS;
+		} catch (Exception e) {
+			log.info(e.toString());
+			addActionError("修改商品失敗.");
 			return INPUT;
 		} finally {
 			pm.close();
@@ -138,5 +187,13 @@ public class ProductAction extends ActionSupport {
 
 	public void setPrice(String price) {
 		this.price = price;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }

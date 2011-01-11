@@ -16,12 +16,30 @@
 		</action>
 	</package>
 	<package name="" namespace="/" extends="struts-default">
+		<!-- 新增 -->
 		<action name="insert">
 			<result>/product/insert.jsp</result>
 		</action>
 		<action name="insertFlower" method="insertFlower" class="com.flowerforest.product.action.ProductAction">
-		<result>/product/insertOK.jsp</result>
-		<result name="input">/product/insert.jsp</result>
+			<result>/product/messagePage.jsp</result>
+			<result name="input">/product/insert.jsp</result>
+		</action>
+		<!-- 列表 -->
+		<action name="list">
+			<result>/product/list.jsp</result>
+		</action>
+		<!-- 刪除 -->
+		<action name="delproduct" method="delproduct" class="com.flowerforest.product.action.ProductAction">
+			<result>/product/messagePage.jsp</result>
+			<result name="input">/product/list.jsp</result>
+		</action>
+		<!-- 修改 -->
+		<action name="update">
+			<result>/product/update.jsp</result>
+		</action>
+		<action name="updateProduct" method="updateProduct" class="com.flowerforest.product.action.ProductAction">
+			<result>/product/messagePage.jsp</result>
+			<result name="input">/product/update.jsp</result>
 		</action>
 	</package>
 	<!--
