@@ -41,10 +41,6 @@
 							<input type="text" name="explain" size="40"/>(適合贈情人等特殊節日)
 						</div>
 						<br/>
-						<div>規格:
-							<input type="text" name="spec" size="40"/>(白玫 粉玫 粉桔梗 滿天星)
-						</div>
-						<br/>
 						<div>配送:
 							<input type="text" name="distribution" size="40"/>(專人配送)
 						</div>
