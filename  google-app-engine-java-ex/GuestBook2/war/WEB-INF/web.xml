@@ -69,6 +69,15 @@
 		<servlet-name>CreateNewTodo</servlet-name>
 		<url-pattern>/new</url-pattern>
 	</servlet-mapping>
+	<!-- Email -->
+	<servlet>
+		<servlet-name>Email</servlet-name>
+		<servlet-class>com.gae.todo.EmailServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Email</servlet-name>
+		<url-pattern>/_ah/mail/*</url-pattern>
+	</servlet-mapping>
 		
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
