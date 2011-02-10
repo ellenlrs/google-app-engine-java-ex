@@ -69,7 +69,7 @@
 		<servlet-name>CreateNewTodo</servlet-name>
 		<url-pattern>/new</url-pattern>
 	</servlet-mapping>
-	<!-- Email -->
+	<!-- Todo Email -->
 	<servlet>
 		<servlet-name>Email</servlet-name>
 		<servlet-class>com.gae.todo.EmailServlet</servlet-class>
@@ -78,7 +78,26 @@
 		<servlet-name>Email</servlet-name>
 		<url-pattern>/_ah/mail/*</url-pattern>
 	</servlet-mapping>
-		
+	
+	<!-- Send Email -->
+	<servlet>
+	  <servlet-name>mailhandler</servlet-name>
+	  <servlet-class>com.gae.mail.MailHandlerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>mailhandler</servlet-name>
+	  <url-pattern>/mailhandler</url-pattern>
+	</servlet-mapping>
+	<!-- 
+	<security-constraint>
+	  <web-resource-collection>
+	    <url-pattern>/_ah/mail/*</url-pattern>
+	  </web-resource-collection>
+	  <auth-constraint>
+	    <role-name>admin</role-name>
+	  </auth-constraint>
+	</security-constraint>
+		 -->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 		

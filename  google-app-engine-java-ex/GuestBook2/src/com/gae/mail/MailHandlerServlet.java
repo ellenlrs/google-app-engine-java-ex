@@ -1,10 +1,9 @@
-package com.gae.todo;
+package com.gae.mail;
 
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
@@ -17,41 +16,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.gae.todo.dao.Dao;
-import com.google.appengine.api.users.User;
-
-public class EmailServlet extends HttpServlet {
-
+@SuppressWarnings("serial")
+public class MailHandlerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Logger log = Logger.getLogger(EmailServlet.class.getName());
+	private static final Logger log = Logger.getLogger(MailHandlerServlet.class.getName());
 
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		log.info("Your information log message");
-		log.warning("Your warning log message");
-		log.severe("Your severe log message");
 		Properties props = new Properties();
-
 		Session email = Session.getDefaultInstance(props, null);
-
 		try {
-			MimeMessage message = new MimeMessage(email, req.getInputStream());
-			String summary = message.getSubject();
-			String description = getText(message);
-			Address[] addresses = message.getFrom();
-			User user = new User(addresses[0].toString(), "gmail.com");
-			Dao.INSTANCE.add(user.getNickname(), summary, description, "");
-
-			String msgBody = "中文信測試";
+			String sendto = checkNull(req.getParameter("sendto"));
+			String mailbody = checkNull(req.getParameter("mailbody"));
 			Message msg = new MimeMessage(email);
 			msg.setFrom(new InternetAddress("ellenlrs@gmail.com", "Ellenlrs Admin"));
-			msg.addRecipient(Message.RecipientType.TO, new InternetAddress("ellenlrs@gmail.com", "Ellenlrs"));
-			msg.setSubject("Your Example.com account has been activated");
-			msg.setText(msgBody);
+			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(sendto, sendto));
+			msg.setSubject("This is ellenlrs GAE mail");
+			msg.setText(mailbody);
 			Transport.send(msg);
-
+			resp.sendRedirect("/index.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.warning("MailHandlerServlet_doPost_ERROR" + e.toString());
 		}
 	}
 
@@ -98,4 +84,10 @@ public class EmailServlet extends HttpServlet {
 		return null;
 	}
 
+	private String checkNull(String s) {
+		if (s == null) {
+			return "";
+		}
+		return s;
+	}
 }
