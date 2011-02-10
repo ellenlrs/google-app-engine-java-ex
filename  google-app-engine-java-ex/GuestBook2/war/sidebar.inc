@@ -26,13 +26,16 @@
 					</ul>
 				</li>
 				<li>
-					<h2>Jquery Ex:</h2>
+					<h2>Ex:</h2>
 					<ul>
 						<li><a href="http://ellenjquery.appspot.com/ui/index.html">Jquery UI EX</a></li>
 											
 					</ul>
+					<ul>
+						<li><a href="/TodoApplication.jsp">TODO EX</a></li>
+											
+					</ul>
 				</li>
-				
 			</ul>
 		</div>
 		<div id="sidebar-bgbtm"></div>

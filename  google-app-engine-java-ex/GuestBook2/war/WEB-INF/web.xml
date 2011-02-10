@@ -51,7 +51,24 @@
         <servlet-name>updBook</servlet-name>
         <url-pattern>/updBook</url-pattern>
     </servlet-mapping>
-		
+    
+    <!-- Todo -->
+	<servlet>
+		<servlet-name>CreateNewTodo</servlet-name>
+		<servlet-class>com.gae.todo.ServletCreateTodo</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RemoveTodo</servlet-name>
+		<servlet-class>com.gae.todo.ServletRemoveTodo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RemoveTodo</servlet-name>
+		<url-pattern>/done</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CreateNewTodo</servlet-name>
+		<url-pattern>/new</url-pattern>
+	</servlet-mapping>
 		
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
