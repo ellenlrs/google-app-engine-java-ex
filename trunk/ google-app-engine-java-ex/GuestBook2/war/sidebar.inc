@@ -26,13 +26,17 @@
 					</ul>
 				</li>
 				<li>
-					<h2>Ex:</h2>
+					<h2>GAE 練習:</h2>
 					<ul>
 						<li><a href="http://ellenjquery.appspot.com/ui/index.html">Jquery UI EX</a></li>
 											
 					</ul>
 					<ul>
-						<li><a href="/TodoApplication.jsp">TODO EX</a></li>
+						<li><a href="/TodoApplication.jsp">TODO EX 待處理功能</a></li>
+											
+					</ul>
+					<ul>
+						<li><a href="/sendMail.jsp">Send Mail 寄送信件</a></li>
 											
 					</ul>
 				</li>
