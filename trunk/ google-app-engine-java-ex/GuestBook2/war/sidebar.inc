@@ -39,6 +39,10 @@
 						<li><a href="/sendMail.jsp">Send Mail 寄送信件</a></li>
 											
 					</ul>
+					<ul>
+						<li><a href="/jsp/kindeditor/demo.jsp">kindEditor 網頁編輯器</a></li>
+											
+					</ul>
 				</li>
 			</ul>
 		</div>
