@@ -41,6 +41,9 @@
 			<result>/product/messagePage.jsp</result>
 			<result name="input">/product/update.jsp</result>
 		</action>
+		 <action name="shop" method="shop" class="com.flowerforest.product.action.ShopAction">
+		 <result>/shop/shop.jsp</result>
+	    </action>
 	</package>
 	<!--
 	<package name="" namespace="/" extends="tiles-default">
