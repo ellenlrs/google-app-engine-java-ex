@@ -9,6 +9,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" charset="UTF-8" src="/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript">
+	$().ready(function() {	
+		 //alert("itemNO:"+$("#itemNo").val());
+	 });
+	</script>
 </head>
 <body>
 <%
@@ -34,12 +40,32 @@
 <blockquote>備註:<%= p.getMemo() %></blockquote>
 
 <blockquote>
+<a href="/insert" >新增商品</a>
 <a href="/update?id=<%= p.getId()%>" >修改商品</a>
-<a href="/shoppingcart?id=<%= p.getId()%>" >加入購物車</a>
+
+
+<script src='/js/cart.js'></script>
+<table width=300>
+<tr>
+<form method=post name='shop_cart' action='/shop' >
+<input type=hidden name="itemNo" id="itemNo" value="<%= p.getId()%>">
+<input type=hidden name=itemNm id="itemNm" value="<%= p.getTitle() %>">
+<input type=hidden name=price id="price" value="<%= p.getPrice() %>">
+<input type=hidden name=qty id="qty" value="1">
+<input type=hidden name=sells id="sells" value="S0000000010">
+<input type=hidden name='target' value="_same">
+<a href='#' onClick='addCartForm(document.shop_cart);'>加入購物車</a>
+<br /></form>
+
+</td></tr></table>
+
 <BR/><BR/>
 <form action="/delproduct?id=<%= p.getId()%>" method="post">
 <input type="submit" value="刪除商品" name="del"/>
 </form>
+<BR/><BR/>
+<a href="/" >回首頁</a>
+
 </blockquote>
 <%
         }   
