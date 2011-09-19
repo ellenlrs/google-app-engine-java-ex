@@ -90,13 +90,12 @@ hr {
 
 /** LOGO */
 
-#logo {
+#logo{
 	width: 960px;
-	height: 80px;
-	margin: 0px auto;
-	font-size: 12px;
+	height: 60px;
+	margin: 10px auto;
+	background: url(images/ff3.png) no-repeat left top;
 }
-
 #logo h1 a {
 	display : inline-block;
 	margin: 0px;
