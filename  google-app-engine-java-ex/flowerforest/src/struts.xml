@@ -5,7 +5,7 @@
 <struts>
 	<include file="struts-default.xml"></include>
 	<constant name="struts.custom.i18n.resources" value="messages" />
-	
+<!-- 
 	<package name="member" namespace="/member" extends="struts-default">
 		<action name="login">
 			<result>/login.jsp</result>
@@ -15,12 +15,14 @@
 			<result name="input">/login.jsp</result>
 		</action>
 	</package>
+ -->	
 	<package name="" namespace="/" extends="struts-default">
 		<!-- 新增 -->
 		<action name="insert">
 			<result>/product/insert.jsp</result>
 		</action>
-		<action name="insertFlower" method="insertFlower" class="com.flowerforest.product.action.ProductAction">
+		<action name="insertFlower" method="insertFlower"
+			class="com.flowerforest.product.action.ProductAction">
 			<result>/product/messagePage.jsp</result>
 			<result name="input">/product/insert.jsp</result>
 		</action>
@@ -29,7 +31,8 @@
 			<result>/product/list.jsp</result>
 		</action>
 		<!-- 刪除 -->
-		<action name="delproduct" method="delproduct" class="com.flowerforest.product.action.ProductAction">
+		<action name="delproduct" method="delproduct"
+			class="com.flowerforest.product.action.ProductAction">
 			<result>/product/messagePage.jsp</result>
 			<result name="input">/product/list.jsp</result>
 		</action>
@@ -37,69 +40,71 @@
 		<action name="update">
 			<result>/product/update.jsp</result>
 		</action>
-		<action name="updateProduct" method="updateProduct" class="com.flowerforest.product.action.ProductAction">
+		<action name="updateProduct" method="updateProduct"
+			class="com.flowerforest.product.action.ProductAction">
 			<result>/product/messagePage.jsp</result>
 			<result name="input">/product/update.jsp</result>
 		</action>
-		 <action name="shop" method="shop" class="com.flowerforest.product.action.ShopAction">
-		 <result>/shop/shop.jsp</result>
-	    </action>
+		<action name="shop" method="shop"
+			class="com.flowerforest.product.action.ShopAction">
+			<result>/shop/shop.jsp</result>
+		</action>
+
+		<!-- 後台管理系統 -->
+		<action name="login" method="login" class="com.flowerforest.backend.work.action.LoginAction">
+			<result>/backend/Success.jsp</result>
+			<result name="error" type="redirect">/backend/Login.jsp</result>
+		</action>
+
+		<action name="logout" method="logout" class="com.flowerforest.backend.work.action.LogoutAction">
+			<result name="success" type="redirect">/backend/Login.jsp
+			</result>
+		</action>
+		<action name="savework" method="savework"
+			class="com.flowerforest.backend.work.action.WorkAction">
+			<result>/backend/works.jsp</result>
+		</action>
+		<action name="update">
+			<result>/backend/worksUpdate.jsp</result>
+		</action>
+		<action name="updateWork" method="updateWork"
+			class="com.flowerforest.backend.work.action.WorkAction">
+			<result>/backend/worksUpdate.jsp</result>
+		</action>
+		<action name="delwork" method="delwork"
+			class="com.flowerforest.backend.work.action.WorkAction">
+			<result>/backend/works.jsp</result>
+		</action>
 	</package>
 	<!--
-	<package name="" namespace="/" extends="tiles-default">
-		
-		<interceptors>
-			<interceptor name="gaeFileUploadInterceptor"
-				class="com.struts2.gae.interceptor.GaeFileUploadInterceptor" />
-			<interceptor-stack name="fileUploadStack">
-				<interceptor-ref name="gaeFileUploadInterceptor"></interceptor-ref>
-				<interceptor-ref name="basicStack"></interceptor-ref>
-			</interceptor-stack>
-		</interceptors>
-		<default-interceptor-ref name="fileUploadStack" />
-		 
-		<action name="add">
-			<result>/upload.jsp</result>
-		</action>
-		<action name="upload" method="upload" class="com.yanfb.gs2.UploadAction">
-			<result name="success" type="stream">
-				<param name="contentType">image/jpeg</param>
-				<param name="inputName">photoStream</param>
-				<param name="contentDisposition">filename="photo.jpg"</param>
-				<param name="bufferSize">1024</param>
-			</result>
-		</action>
-		 
-		 <action name="toUpload">
-			<result name="success" type="tiles">index.definition
-			</result>
-		</action>
-		<action name="fileUpload" class="uploadAction">
-			<result name="iamge" type="stream">
-				<param name="contentType">image/jpeg</param>
-				<param name="inputName">photoStream</param>
-				<param name="contentDisposition">filename="photo.jpg"</param>
-				<param name="bufferSize">1024</param>
-			</result>
-		 	<result name="uploadTextInfo" type="tiles">
-		 		file.info.definition
-			</result>
-			<result name="input" type="tiles">file.upload.definition
-			</result>
-			<result name="uploadPage" type="tiles">file.upload.definition
-			</result>
-		</action>
-		
-		<action name="introduce-en">
-			<result name="success" type="tiles">introduce.en.definition
-			</result>
-		</action>
-		
-		<action name="introduce-cn">
-			<result name="success" type="tiles">introduce.cn.definition
-			</result>
-		</action>
-		
-	</package>
+		<package name="" namespace="/" extends="tiles-default"> <interceptors>
+		<interceptor name="gaeFileUploadInterceptor"
+		class="com.struts2.gae.interceptor.GaeFileUploadInterceptor" />
+		<interceptor-stack name="fileUploadStack"> <interceptor-ref
+		name="gaeFileUploadInterceptor"></interceptor-ref> <interceptor-ref
+		name="basicStack"></interceptor-ref> </interceptor-stack>
+		</interceptors> <default-interceptor-ref name="fileUploadStack" />
+
+		<action name="add"> <result>/upload.jsp</result> </action> <action
+		name="upload" method="upload" class="com.yanfb.gs2.UploadAction">
+		<result name="success" type="stream"> <param
+		name="contentType">image/jpeg</param> <param
+		name="inputName">photoStream</param> <param
+		name="contentDisposition">filename="photo.jpg"</param> <param
+		name="bufferSize">1024</param> </result> </action> <action
+		name="toUpload"> <result name="success" type="tiles">index.definition
+		</result> </action> <action name="fileUpload" class="uploadAction">
+		<result name="iamge" type="stream"> <param
+		name="contentType">image/jpeg</param> <param
+		name="inputName">photoStream</param> <param
+		name="contentDisposition">filename="photo.jpg"</param> <param
+		name="bufferSize">1024</param> </result> <result name="uploadTextInfo"
+		type="tiles"> file.info.definition </result> <result name="input"
+		type="tiles">file.upload.definition </result> <result
+		name="uploadPage" type="tiles">file.upload.definition </result>
+		</action> <action name="introduce-en"> <result name="success"
+		type="tiles">introduce.en.definition </result> </action> <action
+		name="introduce-cn"> <result name="success"
+		type="tiles">introduce.cn.definition </result> </action> </package>
 	-->
 </struts>
