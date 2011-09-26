@@ -1,6 +1,7 @@
 package com.login;
 
 import com.opensymphony.xwork2.ActionSupport;
+
 //test
 public class LoginAction extends ActionSupport {
 
@@ -9,7 +10,7 @@ public class LoginAction extends ActionSupport {
 	private String password;
 
 	public String login() {
-		if (username.equals("whyjava") && password.equals("password")) {
+		if (username.equals("flower") && password.equals("forest")) {
 			addActionMessage("You are successfully logged in.");
 			return SUCCESS;
 		}

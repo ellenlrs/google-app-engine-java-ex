@@ -1,3 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page import="java.util.List" %>
+<%@ page import="javax.jdo.PersistenceManager" %>
+<%@ page import="com.flowerforest.backend.entity.Work" %>
+<%@ page import="com.db.PMF" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -22,23 +29,34 @@
 	</div>
 	<div id="page">
 		<div id="content">
+		
+		<%
+    PersistenceManager pm = PMF.get().getPersistenceManager();
+    String query = "select from " + Work.class.getName() +" order by createDate";
+    List<Work> works = (List<Work>) pm.newQuery(query).execute();
+        for (Work w : works) {
+%>
 			<div class="post">
-				<h2 class="title"><a href="#">森林花苑</a></h2>
-				自1996年成立，其花藝設計風格追求簡單優雅，在精緻中特別注重客製化的貼心服務，尤其戶外庭園婚禮設計經驗豐富;
-				<br/><br/>其多變性的產品設計內容，新人可依其個別之需求訂製心目中理想之婚禮會場佈置、新娘捧花、婚宴設計諮詢、宴客會議設計…等<br/><br/>整體設計服務.
+				<h2 class="title"><a href="#"><%= w.getTitle() %></a></h2>
 				<div class="entry">
-					<p><img src="http://lh4.googleusercontent.com/-IrPMDCR-I4w/TnixAevqSxI/AAAAAAAAADU/EOkDZ7rQc3U/s720/flowerforest.jpg" width="800" height="500" alt="" class="alignleft border" />
+					<p><img src="<%= w.getImgurl()%>" width="<%= w.getImgwidth() %>" height="<%= w.getImgheight() %>" alt="" class="alignleft border" />
 					</p>
 					<p class="clearfix">&nbsp;</p>
 				</div>
 			</div>
+	<%
+        }   
+    pm.close();
+	%>		
+			
 			<div style="clear: both;">&nbsp;</div>
 		</div>
 		<div style="clear: both;">&nbsp;</div>
 	</div>
 </div>
 <div id="footer">
-<p>Copyright© 2011 Flower Forest 森林花苑   All Rights Reserved.</p>
+	<p>Copyright© 2011 Flower Forest 森林花苑   All Rights Reserved.</p>
 </div>
 </body>
 </html>
+
