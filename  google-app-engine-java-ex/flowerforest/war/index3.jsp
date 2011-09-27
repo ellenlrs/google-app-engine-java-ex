@@ -10,8 +10,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
+<meta name="keywords" content="森林花苑" />
+<meta name="description" content="森林花苑" />
 <link href="style.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
